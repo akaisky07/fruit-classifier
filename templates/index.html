@@ -1,0 +1,45 @@
+<!-- templates/index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruit Classifier</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Smart Agriculture</h1>
+    </header>
+
+    <nav>
+        <a href="/">Classify Fruit</a>
+        <a href="/fruit_count">Fruit Count</a>
+        <a href="/tree_count">Tree Count</a>
+        <a href="/leaf_disease">Leaf Disease</a>
+    </nav>
+
+    <div class="container">
+        <form method="POST" enctype="multipart/form-data">
+            <label for="file" class="upload-button">Choose Image</label>
+            <input type="file" name="file" id="file" accept="image/*" required>
+            <button type="submit">Classify</button>
+        </form>
+
+        {% if label %}
+            <p class="output">Predicted Fruit: {{ label }}</p>
+        {% endif %}
+    </div>
+
+    <footer>
+        <a href="#"><img src="/static/instagram.png" alt="Instagram"></a>
+        <a href="#"><img src="/static/facebook.png" alt="Facebook"></a>
+        <a href="#"><img src="/static/twitter.png" alt="Twitter"></a>
+        <div class="privacy-terms">
+            <a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a>
+        </div>
+    </footer>
+</body>
+</html>
+
